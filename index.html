@@ -7,190 +7,59 @@
   <title>elbez.net</title>
 
   <style>
-    :root{
-      --bg:#f6f8fb;
-      --surface:#ffffff;
-      --text:#0f172a;
-      --muted:#56637a;
-      --accent:#2563eb;
-      --border:#e5eaf3;
-      --shadow:0 12px 30px rgba(0,0,0,.08);
-      --max: 980px;
+    :root {
+      --bg: #0b1220;
+      --footer-text: #a6b0c3;
     }
 
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b1220;
-        --surface:#111b2e;
-        --text:#eef2ff;
-        --muted:#a6b0c3;
-        --accent:#7aa7ff;
-        --border:#26324a;
-        --shadow:0 18px 50px rgba(0,0,0,.38);
-      }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    body {
       background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-      padding: 2.2rem 1rem 2.8rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
 
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
+    /* HERO IMAGE ONLY */
+    .hero {
+      min-height: 100vh;
+      background:
+        url("assets/hero-journey.png") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .card{
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 2rem 1.6rem;
+    /* Small footer only */
+    footer {
+      text-align: center;
+      padding: 0.8rem 0 1rem;
+      font-size: 0.8rem;
+      color: var(--footer-text);
     }
 
-    header{
-      text-align:center;
-      margin-bottom: 1.2rem;
-    }
-
-    h1{
-      margin:0;
-      font-size: 2.35rem;
-      font-weight: 850;
-      letter-spacing: -0.02em;
-      color: var(--accent);
-    }
-
-    .names{
-      margin-top: 0.6rem;
-      color: var(--muted);
-      font-size: 0.98rem;
-      letter-spacing: 0.02em;
-    }
-
-    .title{
-      margin: 1.4rem auto 0.6rem;
-      font-size: 1.35rem;
-      font-weight: 750;
-      letter-spacing: -0.01em;
-    }
-
-    .subtitle{
-      margin: 0 auto 0.6rem;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .privacy{
-      margin-top: 0.9rem;
-      color: var(--muted);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-image{
-      margin: 1.4rem auto 0.8rem;
-      max-width: 920px;
-    }
-
-    .hero-image img{
-      width: 100%;
-      height: auto;
-      display:block;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-    }
-
-    .caption{
-      margin: 0.65rem auto 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .contact{
-      margin-top: 1.5rem;
-      text-align:center;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .email{
-      display:inline-block;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--accent);
-      text-decoration: none;
-      word-break: break-word;
-    }
-    .email:hover{ text-decoration: underline; }
-
-    .contact-note{
-      margin-top: 0.35rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    footer{
-      text-align:center;
-      margin-top: 1.2rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px){
-      h1{ font-size: 2rem; }
-      .title{ font-size: 1.2rem; }
-      .subtitle{ font-size: 0.98rem; }
-      .card{ padding: 1.6rem 1.1rem; }
+    @media (max-width: 768px) {
+      .hero {
+        background-position: center top;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="card" aria-label="elbez.net">
-      <header>
-        <h1>elbez.net</h1>
 
-        <div class="names">
-          Nicolas El&nbsp;Bez · Ellen · Victor · Arthur · Taro · Babito · Lily
-        </div>
-
-        <div class="title">
-          From global journeys to Brisbane.
-        </div>
-
-        <p class="subtitle">
-          A quiet visual signature for those who know us.
-        </p>
-
-        <div class="privacy">
-          No public profile or personal information is published here.
-        </div>
-      </header>
-
-      <div class="hero-image">
-        <!-- Put your infographic image in /assets/journey.png (instructions below) -->
-        <img src="assets/journey.png" alt="Stylised world map with a travel path" loading="lazy">
-        <p class="caption">Symbolic route — designed to be recognisable, not precise.</p>
-      </div>
-
-      <div class="contact" aria-label="Contact">
-        <a class="email" href="mailto:admin@elbez.net">admin@elbez.net</a>
-        <p class="contact-note">Please include context in the subject line.</p>
-      </div>
-    </section>
-
-    <footer>
-      © elbez.net • No tracking • No cookies • No analytics
-    </footer>
+  <main class="hero" aria-label="elbez.net hero image">
+    <!-- Intentionally empty:
+         All visible content lives inside the image itself -->
   </main>
+
+  <footer>
+    © elbez.net · No tracking · No cookies · No analytics
+  </footer>
+
 </body>
 </html>
+``
