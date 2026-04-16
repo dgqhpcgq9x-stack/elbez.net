@@ -8,14 +8,13 @@
 
   <style>
     :root {
-      /* Light Mode Palette */
       --bg: #f8fafc;
       --surface: #ffffff;
       --text-main: #0f172a;
       --text-muted: #475569;
       --accent: #2563eb;
       --border: #e2e8f0;
-      --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
+      --card-shadow: 0 4px 10px rgba(0,0,0,0.08);
       --max-width: 900px;
     }
 
@@ -27,7 +26,7 @@
         --text-muted: #94a3b8;
         --accent: #60a5fa;
         --border: #334155;
-        --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.30);
+        --card-shadow: 0 10px 18px rgba(0,0,0,0.30);
       }
     }
 
@@ -35,7 +34,7 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.6;
       min-height: 100vh;
@@ -49,23 +48,30 @@
     }
 
     header {
-      margin-bottom: 2.5rem;
       text-align: center;
+      margin-bottom: 2.2rem;
     }
 
     h1 {
       font-size: 2.4rem;
       font-weight: 800;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.02em;
       color: var(--accent);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .name {
+      font-size: 1.02rem;
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.9rem;
+      color: var(--text-main);
     }
 
     .intro {
       font-size: 1.15rem;
-      color: var(--text-main);
       max-width: 720px;
-      margin: 0.75rem auto 0.75rem;
+      margin: 0 auto 0.75rem;
     }
 
     .privacy-note {
@@ -73,67 +79,244 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-top: 0.25rem;
     }
 
-    /* Focus cards */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.2rem;
-      margin: 2rem 0 2.2rem;
+      margin: 2rem 0 1.6rem;
     }
 
     .card {
-      background-color: var(--surface);
-      padding: 1.2rem 1.2rem;
-      border-radius: 12px;
+      background: var(--surface);
       border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
       box-shadow: var(--card-shadow);
-      transition: transform 0.18s ease;
     }
-
-    .card:hover { transform: translateY(-2px); }
 
     .card h3 {
       font-size: 1.05rem;
       font-weight: 650;
-      color: var(--text-main);
       display: flex;
       align-items: center;
+      gap: 10px;
     }
 
     .card h3::before {
       content: "";
-      display: inline-block;
       width: 8px;
       height: 8px;
-      background-color: var(--accent);
       border-radius: 50%;
-      margin-right: 12px;
+      background: var(--accent);
+      display: inline-block;
       flex: 0 0 auto;
     }
 
-    /* Journey section */
+    /* Journey */
     .journey {
-      margin: 0 0 2.2rem;
-      padding: 1.6rem;
-      background-color: var(--surface);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
+      padding: 1.6rem;
       box-shadow: var(--card-shadow);
       text-align: center;
+      margin-bottom: 1.6rem;
     }
 
     .journey h2 {
       font-size: 1.2rem;
       font-weight: 750;
+      margin-bottom: 0.35rem;
       letter-spacing: -0.01em;
-      margin-bottom: 0.4rem;
     }
 
-    .journey .tagline {
+    .journey p {
       color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 1.1rem;
       font-size: 0.98rem;
-      max-width: 720px;
-      margin: 0 auto 1.2rem;
+    }
+
+    .map-wrap {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .land {
+      fill: rgba(127,127,127,0.18);
+      stroke: rgba(127,127,127,0.24);
+      stroke-width: 1;
+    }
+
+    .route {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2;
+      opacity: 0.55;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .pt { fill: var(--accent); opacity: 0.95; }
+    .pt.soft { opacity: 0.70; }
+
+    details {
+      margin-top: 0.9rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 650;
+      color: var(--text-main);
+    }
+
+    /* Contact */
+    .contact-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.7rem;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 1.6rem;
+    }
+
+    .email {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 0.3rem;
+      word-break: break-word;
+    }
+
+    .email:hover { text-decoration: underline; }
+
+    .contact-instruction {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-badges {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .intro { font-size: 1.05rem; }
+      .email { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>elbez.net</h1>
+      <div class="name">Nicolas El&nbsp;Bez</div>
+      <p class="intro">This domain is used for personal communications and limited professional purposes.</p>
+      <p class="privacy-note">No public profile or personal information is published here.</p>
+    </header>
+
+    <section class="grid" aria-label="Focus areas">
+      <div class="card"><h3>Technology &amp; systems</h3></div>
+      <div class="card"><h3>Research &amp; documentation</h3></div>
+      <div class="card"><h3>Problem solving</h3></div>
+      <div class="card"><h3>Process improvement</h3></div>
+      <div class="card"><h3>Long-term archiving</h3></div>
+    </section>
+
+    <section class="journey" aria-label="Journey map">
+      <h2>Recognisable journey</h2>
+      <p>
+        A minimal, non-precise path across continents. If this trajectory feels familiar, you already know how to reach me.
+      </p>
+
+      <div class="map-wrap">
+        <svg viewBox="0 0 1000 520" role="img" aria-label="Abstract world map with a travel path">
+          <!-- abstract land shapes -->
+          <path class="land" d="M75,190 C120,120 190,95 260,110 C340,130 375,185 360,230 C340,285 265,300 210,290 C140,275 95,245 75,190 Z"/>
+          <path class="land" d="M330,320 C365,270 440,235 510,250 C575,265 610,325 580,370 C550,418 465,425 400,395 C350,372 315,345 330,320 Z"/>
+          <path class="land" d="M520,165 C585,120 670,112 740,140 C820,175 860,235 840,280 C815,330 730,335 660,305 C600,277 545,235 520,165 Z"/>
+          <path class="land" d="M700,350 C740,325 795,328 840,360 C885,395 885,445 840,470 C790,495 735,480 700,450 C670,425 665,380 700,350 Z"/>
+
+          <!-- route (symbolic) -->
+          <path class="route"
+            d="M805 395
+               L840 365
+               L555 250
+               L505 295
+               L535 248
+               L640 350
+               L780 340
+               L805 395
+               L790 432
+               L870 455
+               L640 365
+               L230 255
+               L540 235
+               L760 360" />
+
+          <!-- points (symbolic, not GPS) -->
+          <circle class="pt" cx="805" cy="395" r="5"/>      <!-- Sydney -->
+          <circle class="pt soft" cx="840" cy="365" r="5"/> <!-- New Caledonia -->
+          <circle class="pt" cx="555" cy="250" r="5"/>      <!-- Marseille -->
+          <circle class="pt soft" cx="505" cy="295" r="5"/> <!-- Dakar -->
+          <circle class="pt" cx="535" cy="248" r="5"/>      <!-- Toulouse -->
+          <circle class="pt soft" cx="640" cy="350" r="5"/> <!-- Reunion -->
+          <circle class="pt soft" cx="780" cy="340" r="5"/> <!-- Cairns -->
+          <circle class="pt" cx="790" cy="432" r="5"/>      <!-- Melbourne -->
+          <circle class="pt soft" cx="870" cy="455" r="5"/> <!-- Auckland -->
+          <circle class="pt" cx="640" cy="365" r="5"/>      <!-- Singapore -->
+          <circle class="pt soft" cx="230" cy="255" r="5"/> <!-- Fort Lauderdale -->
+          <circle class="pt soft" cx="540" cy="235" r="5"/> <!-- Bordeaux -->
+          <circle class="pt" cx="760" cy="360" r="5"/>      <!-- Brisbane -->
+        </svg>
+      </div>
+
+      <details>
+        <summary>Places (for those who know)</summary>
+        <div style="margin-top:0.6rem;">
+          Sydney → New Caledonia → Marseille → Dakar → Toulouse → Réunion Island → Cairns → Sydney → Melbourne → Auckland → Singapore → Fort Lauderdale → Bordeaux → Brisbane
+        </div>
+      </details>
+    </section>
+
+    <section class="contact-section" aria-label="Contact">
+      <a class="email" href="mailto:admin@elbez.net">admin@elbez.net</a>
+      <p class="contact-instruction">Please include context in the subject line.</p>
+    </section>
+
+    <footer>
+      <p>© elbez.net</p>
+      <div class="footer-badges">
+        <span>No tracking</span><span>•</span><span>No cookies</span><span>•</span><span>No analytics</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
