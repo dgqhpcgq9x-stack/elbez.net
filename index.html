@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>elbez.net</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow">
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #fafafa;
-      color: #222;
-      max-width: 720px;
-      margin: 80px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
-    h1 { font-size: 1.6em; }
-    footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>elbez.net</title>
+    <style>
+        :root {
+            --bg:#f8fafc; --surface:#fff; --text:#0f172a; --muted:#475569;
+            --accent:#2563eb; --border:#e2e8f0; --max:800px;
+            --shadow:0 6px 14px rgba(0,0,0,.1);
+        }
+        @media (prefers-color-scheme:dark) {
+            :root {
+                --bg:#0f172a; --surface:#1e293b; --text:#f1f5f9;
+                --muted:#94a3b8; --accent:#60a5fa; --border:#334155;
+            }
+        }
+        body{
+            margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+            background:var(--bg); color:var(--text); line-height:1.6; padding:2rem 1rem;
+        }
+        .wrap{max-width:var(--max); margin:auto;}
+        h1{text-align:center; color:var(--accent); font-size:2.5rem;}
+        .intro{text-align:center; max-width:600px; margin:1rem auto;}
+        .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+              gap:1.5rem; margin:3rem 0;}
+        .card{background:var(--surface); border:1px solid var(--border);
+              border-radius:12px; padding:1.5rem; box-shadow:var(--shadow);}
+        .contact{text-align:center; background:var(--surface); border:1px solid var(--border);
+                 border-radius:12px; padding:2rem; font-weight:600;}
+        footer{text-align:center; margin-top:3rem; color:var(--muted); font-size:.9rem;}
+    </style>
 </head>
 <body>
+<div class="wrap">
+    <h1>elbez.net</h1>
+    <p class="intro">
+        This domain is used for personal communications and limited professional purposes.<br>
+        No public profile or personal information is published here.
+    </p>
 
-<h1>elbez.net</h1>
+    <section class="grid">
+        <div class="card">Technology & systems</div>
+        <div class="card">Research & documentation</div>
+        <div class="card">Problem solving</div>
+        <div class="card">Process improvement</div>
+        <div class="card">Long-term archiving</div>
+    </section>
 
-<p>
-This domain is used for personal communications and limited professional purposes.
-</p>
+    <section class="contact">
+        admin@elbez.net<br>
+        <small>Please include context in the subject line.</small>
+    </section>
 
-<p>
-No public profile or personal information is published here.
-</p>
-
-<p>
-Contact: <a href="mailto:nicolas@elbez.net">nicolas@elbez.net</a>
-</p>
-
-<footer>
-  © elbez.net
-</footer>
-
+    <footer>
+        © elbez.net • No tracking • No cookies • No analytics
+    </footer>
+</div>
 </body>
 </html>
