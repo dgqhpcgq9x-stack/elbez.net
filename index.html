@@ -7,316 +7,190 @@
   <title>elbez.net</title>
 
   <style>
-    :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --accent: #2563eb;
-      --border: #e2e8f0;
-      --card-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      --max-width: 900px;
+    :root{
+      --bg:#f6f8fb;
+      --surface:#ffffff;
+      --text:#0f172a;
+      --muted:#56637a;
+      --accent:#2563eb;
+      --border:#e5eaf3;
+      --shadow:0 12px 30px rgba(0,0,0,.08);
+      --max: 980px;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --surface: #1e293b;
-        --text-main: #f1f5f9;
-        --text-muted: #94a3b8;
-        --accent: #60a5fa;
-        --border: #334155;
-        --card-shadow: 0 10px 18px rgba(0,0,0,0.30);
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220;
+        --surface:#111b2e;
+        --text:#eef2ff;
+        --muted:#a6b0c3;
+        --accent:#7aa7ff;
+        --border:#26324a;
+        --shadow:0 18px 50px rgba(0,0,0,.38);
       }
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      min-height: 100vh;
-      padding: 2rem 1rem;
+      color: var(--text);
+      line-height: 1.55;
+      padding: 2.2rem 1rem 2.8rem;
     }
 
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
+    .wrap{
+      max-width: var(--max);
       margin: 0 auto;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 2.2rem;
+    .card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 2rem 1.6rem;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
+    header{
+      text-align:center;
+      margin-bottom: 1.2rem;
+    }
+
+    h1{
+      margin:0;
+      font-size: 2.35rem;
+      font-weight: 850;
       letter-spacing: -0.02em;
       color: var(--accent);
-      margin-bottom: 0.4rem;
     }
 
-    .name {
-      font-size: 1.02rem;
-      font-weight: 650;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.9rem;
-      color: var(--text-main);
+    .names{
+      margin-top: 0.6rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
     }
 
-    .intro {
-      font-size: 1.15rem;
-      max-width: 720px;
-      margin: 0 auto 0.75rem;
-    }
-
-    .privacy-note {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-      margin: 2rem 0 1.6rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem;
-      box-shadow: var(--card-shadow);
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      font-weight: 650;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card h3::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: inline-block;
-      flex: 0 0 auto;
-    }
-
-    /* Journey */
-    .journey {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.6rem;
-      box-shadow: var(--card-shadow);
-      text-align: center;
-      margin-bottom: 1.6rem;
-    }
-
-    .journey h2 {
-      font-size: 1.2rem;
+    .title{
+      margin: 1.4rem auto 0.6rem;
+      font-size: 1.35rem;
       font-weight: 750;
-      margin-bottom: 0.35rem;
       letter-spacing: -0.01em;
     }
 
-    .journey p {
-      color: var(--text-muted);
+    .subtitle{
+      margin: 0 auto 0.6rem;
       max-width: 760px;
-      margin: 0 auto 1.1rem;
-      font-size: 0.98rem;
+      color: var(--muted);
+      font-size: 1.02rem;
     }
 
-    .map-wrap {
-      width: 100%;
-      max-width: 860px;
-      margin: 0 auto;
+    .privacy{
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    svg {
+    .hero-image{
+      margin: 1.4rem auto 0.8rem;
+      max-width: 920px;
+    }
+
+    .hero-image img{
       width: 100%;
       height: auto;
-      display: block;
-    }
-
-    .land {
-      fill: rgba(127,127,127,0.18);
-      stroke: rgba(127,127,127,0.24);
-      stroke-width: 1;
-    }
-
-    .route {
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2;
-      opacity: 0.55;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .pt { fill: var(--accent); opacity: 0.95; }
-    .pt.soft { opacity: 0.70; }
-
-    details {
-      margin-top: 0.9rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 650;
-      color: var(--text-main);
-    }
-
-    /* Contact */
-    .contact-section {
-      background: var(--surface);
+      display:block;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.7rem;
-      text-align: center;
-      box-shadow: var(--card-shadow);
-      margin-bottom: 1.6rem;
     }
 
-    .email {
-      display: inline-block;
-      font-size: 1.2rem;
+    .caption{
+      margin: 0.65rem auto 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact{
+      margin-top: 1.5rem;
+      text-align:center;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .email{
+      display:inline-block;
       font-weight: 800;
+      font-size: 1.1rem;
       color: var(--accent);
       text-decoration: none;
-      margin-bottom: 0.3rem;
       word-break: break-word;
     }
+    .email:hover{ text-decoration: underline; }
 
-    .email:hover { text-decoration: underline; }
-
-    .contact-instruction {
+    .contact-note{
+      margin-top: 0.35rem;
+      color: var(--muted);
       font-size: 0.95rem;
-      color: var(--text-muted);
     }
 
-    footer {
-      text-align: center;
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--border);
+    footer{
+      text-align:center;
+      margin-top: 1.2rem;
+      color: var(--muted);
       font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
-    .footer-badges {
-      margin-top: 0.6rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .intro { font-size: 1.05rem; }
-      .email { font-size: 1.1rem; }
+    @media (max-width: 600px){
+      h1{ font-size: 2rem; }
+      .title{ font-size: 1.2rem; }
+      .subtitle{ font-size: 0.98rem; }
+      .card{ padding: 1.6rem 1.1rem; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <h1>elbez.net</h1>
-      <div class="name">Nicolas El&nbsp;Bez</div>
-      <p class="intro">This domain is used for personal communications and limited professional purposes.</p>
-      <p class="privacy-note">No public profile or personal information is published here.</p>
-    </header>
+  <main class="wrap">
+    <section class="card" aria-label="elbez.net">
+      <header>
+        <h1>elbez.net</h1>
 
-    <section class="grid" aria-label="Focus areas">
-      <div class="card"><h3>Technology &amp; systems</h3></div>
-      <div class="card"><h3>Research &amp; documentation</h3></div>
-      <div class="card"><h3>Problem solving</h3></div>
-      <div class="card"><h3>Process improvement</h3></div>
-      <div class="card"><h3>Long-term archiving</h3></div>
-    </section>
+        <div class="names">
+          Nicolas El&nbsp;Bez · Ellen · Victor · Arthur · Taro · Babito · Lily
+        </div>
 
-    <section class="journey" aria-label="Journey map">
-      <h2>Recognisable journey</h2>
-      <p>
-        A minimal, non-precise path across continents. If this trajectory feels familiar, you already know how to reach me.
-      </p>
+        <div class="title">
+          From global journeys to Brisbane.
+        </div>
 
-      <div class="map-wrap">
-        <svg viewBox="0 0 1000 520" role="img" aria-label="Abstract world map with a travel path">
-          <!-- abstract land shapes -->
-          <path class="land" d="M75,190 C120,120 190,95 260,110 C340,130 375,185 360,230 C340,285 265,300 210,290 C140,275 95,245 75,190 Z"/>
-          <path class="land" d="M330,320 C365,270 440,235 510,250 C575,265 610,325 580,370 C550,418 465,425 400,395 C350,372 315,345 330,320 Z"/>
-          <path class="land" d="M520,165 C585,120 670,112 740,140 C820,175 860,235 840,280 C815,330 730,335 660,305 C600,277 545,235 520,165 Z"/>
-          <path class="land" d="M700,350 C740,325 795,328 840,360 C885,395 885,445 840,470 C790,495 735,480 700,450 C670,425 665,380 700,350 Z"/>
+        <p class="subtitle">
+          A quiet visual signature for those who know us.
+        </p>
 
-          <!-- route (symbolic) -->
-          <path class="route"
-            d="M805 395
-               L840 365
-               L555 250
-               L505 295
-               L535 248
-               L640 350
-               L780 340
-               L805 395
-               L790 432
-               L870 455
-               L640 365
-               L230 255
-               L540 235
-               L760 360" />
+        <div class="privacy">
+          No public profile or personal information is published here.
+        </div>
+      </header>
 
-          <!-- points (symbolic, not GPS) -->
-          <circle class="pt" cx="805" cy="395" r="5"/>      <!-- Sydney -->
-          <circle class="pt soft" cx="840" cy="365" r="5"/> <!-- New Caledonia -->
-          <circle class="pt" cx="555" cy="250" r="5"/>      <!-- Marseille -->
-          <circle class="pt soft" cx="505" cy="295" r="5"/> <!-- Dakar -->
-          <circle class="pt" cx="535" cy="248" r="5"/>      <!-- Toulouse -->
-          <circle class="pt soft" cx="640" cy="350" r="5"/> <!-- Reunion -->
-          <circle class="pt soft" cx="780" cy="340" r="5"/> <!-- Cairns -->
-          <circle class="pt" cx="790" cy="432" r="5"/>      <!-- Melbourne -->
-          <circle class="pt soft" cx="870" cy="455" r="5"/> <!-- Auckland -->
-          <circle class="pt" cx="640" cy="365" r="5"/>      <!-- Singapore -->
-          <circle class="pt soft" cx="230" cy="255" r="5"/> <!-- Fort Lauderdale -->
-          <circle class="pt soft" cx="540" cy="235" r="5"/> <!-- Bordeaux -->
-          <circle class="pt" cx="760" cy="360" r="5"/>      <!-- Brisbane -->
-        </svg>
+      <div class="hero-image">
+        <!-- Put your infographic image in /assets/journey.png (instructions below) -->
+        <img src="assets/journey.png" alt="Stylised world map with a travel path" loading="lazy">
+        <p class="caption">Symbolic route — designed to be recognisable, not precise.</p>
       </div>
 
-      <details>
-        <summary>Places (for those who know)</summary>
-        <div style="margin-top:0.6rem;">
-          Sydney → New Caledonia → Marseille → Dakar → Toulouse → Réunion Island → Cairns → Sydney → Melbourne → Auckland → Singapore → Fort Lauderdale → Bordeaux → Brisbane
-        </div>
-      </details>
-    </section>
-
-    <section class="contact-section" aria-label="Contact">
-      <a class="email" href="mailto:admin@elbez.net">admin@elbez.net</a>
-      <p class="contact-instruction">Please include context in the subject line.</p>
+      <div class="contact" aria-label="Contact">
+        <a class="email" href="mailto:admin@elbez.net">admin@elbez.net</a>
+        <p class="contact-note">Please include context in the subject line.</p>
+      </div>
     </section>
 
     <footer>
-      <p>© elbez.net</p>
-      <div class="footer-badges">
-        <span>No tracking</span><span>•</span><span>No cookies</span><span>•</span><span>No analytics</span>
-      </div>
+      © elbez.net • No tracking • No cookies • No analytics
     </footer>
-  </div>
+  </main>
 </body>
 </html>
